@@ -8,6 +8,11 @@ app.use( express.static( 'server/public' ) );
 
 // globals
 const port = 5000;
+//test data
+let messages = [ {
+    author: 'Jen',
+    text: 'testing'
+}];
 
 // spin up server
 app.listen( port, ()=>{
@@ -15,3 +20,7 @@ app.listen( port, ()=>{
 })
 
 //routes
+app.get( '/messages', ( req, res )=>{
+    console.log( '/messages GET hit' );
+    res.send( messages );
+})
